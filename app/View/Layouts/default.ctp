@@ -14,6 +14,8 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
+	//$consulta = $this->Usuario->query("SELECT creditos FROM usuario WHERE id = 4");
+
 
 ?>
 <!DOCTYPE html>
@@ -25,23 +27,15 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-		// echo $this->Html->css('bootstrap.min');
-		// echo $this->Html->css('adminlte');
-		// echo $this->Html->css('adminlte.min');
-		// echo $this->Html->css('all.min');
-		// echo $this->Html->css('all.min');
-		// echo $this->Html->css('bootstrap-grid');
-
+		echo $this->Html->css('adminlte');
+		echo $this->Html->css('adminlte.min');
+		echo $this->Html->css('all.min');
+		echo $this->Html->css('bootstrap-grid');
+		echo $this->Html->css('bootstrap.min');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="dist/css/adminlte.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-	<link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 	<div id="container">
