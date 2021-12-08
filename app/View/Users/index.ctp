@@ -1,14 +1,15 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="col-sm-6">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadModal">
-            <i class="nav-icon fas fa-user-plus" ></i>&nbsp Cadastrar Usuário</button> 
-        </div>
+            <?php echo $this->Html->link("Add Post", array('action' => 'add')); ?>
+            <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cadModal">
+            <i class="nav-icon fas fa-user-plus" ></i>&nbsp Cadastrar Usuário</button> -->
+        </div> 
     </div>
     <?php
-        echo $this->Form->create('consulta_usuario', array(
+        echo $this->Form->create('consulta_user', array(
             'url' => array(
-                'controller' => 'usuarios', 
+                'controller' => 'Users', 
                 'action' => 'index'
             )
         )); 
@@ -49,14 +50,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($usuarios as $usuario): ?>
+                                <?php foreach($users as $user): ?>
                                 <tr>
-                                    <td><?php echo $usuario['Usuario']['nome']; ?></td>
-                                    <td><?php echo $usuario['Usuario']['cpf']; ?></td>
-                                    <td><?php echo $usuario['Usuario']['email']; ?></td>
-                                    <td><?php echo $usuario['Usuario']['perfilID']; ?></td>
-                                    <td><?php echo $usuario['Usuario']['creditos']; ?></td>
-                                    <td></td>
+                                    <td><?php echo $user['user']['nome']; ?></td>
+                                    <td><?php echo $user['user']['cpf']; ?></td>
+                                    <td><?php echo $user['user']['email']; ?></td>
+                                    <td><?php echo $user['user']['perfil_id']; ?></td>
+                                    <td><?php echo $user['user']['creditos']; ?></td>
+                                    <td>
+                                        <?php
+                                            echo $this->Html->link(
+                                                'Editar',
+                                                array('action' => 'edit', $user['user']['id'])
+                                            )
+                                        ?>
+                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

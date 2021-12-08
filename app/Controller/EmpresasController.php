@@ -45,14 +45,14 @@
         public function reduceCredits()
         {
             $id         = $_SESSION['id'];
-            $query      = $connection->prepare("SELECT creditos FROM usuario WHERE id=:id");
+            $query      = $connection->prepare("SELECT creditos FROM user WHERE id=:id");
             $query->execute(['id' => $id]);
             $creditos   = $query->fetchColumn() - $result[0]['total'];
-            $query      = $connection->prepare("UPDATE usuario SET creditos=:creditos WHERE id =:id");
+            $query      = $connection->prepare("UPDATE user SET creditos=:creditos WHERE id =:id");
             $query->execute(['creditos' => $creditos, 'id' => $id]);
-            $query      = $connection->prepare("INSERT INTO logs (arquivo,usuario_id,empresa_nome,n_funcionarios, timestamp) 
-                                                VALUES (:arquivo,:usuario_id,:empresa_nome, :n_funcionarios, NOW())");
-            $query->execute(['arquivo' => $filename, 'usuario_id' => $id, 'empresa_nome' => $query[0]['nomeEmpresa'], 'n_funcionarios' => $query[0]['total']]);
+            $query      = $connection->prepare("INSERT INTO logs (arquivo,user_id,empresa_nome,n_funcionarios, timestamp) 
+                                                VALUES (:arquivo,:user_id,:empresa_nome, :n_funcionarios, NOW())");
+            $query->execute(['arquivo' => $filename, 'user_id' => $id, 'empresa_nome' => $query[0]['nomeEmpresa'], 'n_funcionarios' => $query[0]['total']]);
             exit;
         }
     }

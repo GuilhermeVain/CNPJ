@@ -14,7 +14,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-	//$consulta = $this->Usuario->query("SELECT creditos FROM usuario WHERE id = 4");
+	//$consulta = $this->user->query("SELECT creditos FROM user WHERE id = 4");
 
 
 ?>
@@ -35,6 +35,7 @@
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		echo $this->Html->css('../fontawesome-free/css/all.min.css');
 	?>
 </head>
 <body class="hold-transition sidebar-mini">
